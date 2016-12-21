@@ -4,10 +4,9 @@ module.exports = {
   entry: {
     main: ['babel-polyfill', './lib/index.js']
   },
-  output: {
-    path: path.join(__dirname, 'public'),
-    publicPath: '/public/',
-    filename: '[name].bundle.js',
+	output: {
+    path: __dirname,
+    filename: "[name].bundle.js"
   },
   module: {
     loaders: [
@@ -30,4 +29,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.scss', '.css'],
   },
+	devServer: {
+		historyApiFallback: true
+	}
 };

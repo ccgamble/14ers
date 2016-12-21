@@ -1,30 +1,45 @@
 import React, { Component } from 'react';
+import { map, filter } from 'lodash'
+import { BrowserRouter, Match, Miss, Link } from 'react-router';
 import data from '../data.js'
+import Search from './Search'
+import IndividualMountain from './IndividualMountain'
+
 
 class Application extends Component {
   constructor() {
     super();
-		this.state = {
-			data: ''
-		}
+			this.state = {
+				data: [],
+				searchString: ''
+			}
 		}
 
+	componentDidMount() {
+		this.setState({
+			data: data
+		})
+	}
+
+	updateSearch(searchString) {
+		this.setState({searchString: searchString});
+	}
 
 	render() {
-		// const dataList = data.map(d =>
-		// console.log(d.name) )
 
+		let mountainList = this.state.data.map((d) => {
+			return d.name.toLowerCase().includes(this.state.searchString.toLowerCase()) ? (<li key={d.rank}>{d.name}, Elevation: {d.elevation} ft, Difficulty: {d.difficulty}</li>) : null
+		})
 		return(
-			<div>
-				<ul>{data.map(d=>
-					<li key={d.rank}>{d.name}, Elevation: {d.elevation} feet, Difficulty: {d.difficulty}</li>
-				)}</ul>
-			</div>
+			<BrowserRouter>
+				<section>
+					<Search onSearch={this.updateSearch.bind(this)}/>
+					{mountainList}
+					<Match pattern= "/:name" component={IndividualMountain} />
+				</section>
+			</BrowserRouter>
 		)
 	}
 }
-
-
-
 
 export default Application;
