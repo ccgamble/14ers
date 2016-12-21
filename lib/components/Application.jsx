@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { map, filter } from 'lodash'
 import { BrowserRouter, Match, Miss, Link } from 'react-router';
-import data from '../data.js'
 import Search from './Search'
 import IndividualMountain from './IndividualMountain'
+import HomePage from './HomePage'
+import mountainData from '../data.js'
+
 
 
 class Application extends Component {
@@ -15,11 +17,14 @@ class Application extends Component {
 			}
 		}
 
-	componentDidMount() {
+
+	componentWillMount() {
 		this.setState({
-			data: data
+			data: mountainData
 		})
 	}
+
+
 
 	updateSearch(searchString) {
 		this.setState({searchString: searchString});
@@ -27,15 +32,14 @@ class Application extends Component {
 
 	render() {
 
-		let mountainList = this.state.data.map((d) => {
-			return d.name.toLowerCase().includes(this.state.searchString.toLowerCase()) ? (<li key={d.rank}>{d.name}, Elevation: {d.elevation} ft, Difficulty: {d.difficulty}</li>) : null
-		})
 		return(
 			<BrowserRouter>
 				<section>
 					<Search onSearch={this.updateSearch.bind(this)}/>
-					{mountainList}
-					<Match pattern= "/:name" component={IndividualMountain} />
+					<Match exactly pattern="/" render={ () => (
+						<HomePage data={this.state.data} searchString={this.state.searchString} />
+					)} />
+ 					<Match pattern= "/:destination" component={IndividualMountain} />
 				</section>
 			</BrowserRouter>
 		)

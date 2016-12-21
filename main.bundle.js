@@ -28857,15 +28857,11 @@
 					_reactRouter.BrowserRouter,
 					null,
 					_react2.default.createElement(
-						'div',
+						'section',
 						null,
 						_react2.default.createElement(_Search2.default, { onSearch: this.updateSearch.bind(this) }),
-						_react2.default.createElement(
-							'ul',
-							null,
-							mountainList
-						),
-						_react2.default.createElement(_reactRouter.Match, { exactly: true, pattern: '/about', component: _IndividualMountain2.default })
+						mountainList,
+						_react2.default.createElement(_reactRouter.Match, { pattern: '/:name', component: _IndividualMountain2.default })
 					)
 				);
 			}
