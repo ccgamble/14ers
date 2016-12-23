@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 
 
 export default class IndividualMountain extends Component {
-  render({params}){
+  render(){
 		return (
 			<div className = "IndividualMountain">
-				<h2>Mountain: {params.destination}</h2>
+				{/* <h2>Mountain:{this.props.data.name}</h2> */}
+				{console.log(this.props.data)}
 			</div>
 		)
 	}

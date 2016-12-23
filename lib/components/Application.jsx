@@ -39,7 +39,9 @@ class Application extends Component {
 					<Match exactly pattern="/" render={ () => (
 						<HomePage data={this.state.data} searchString={this.state.searchString} />
 					)} />
- 					<Match pattern= "/:destination" component={IndividualMountain} />
+					<Match exactly pattern="/:name" render={ () => (
+						<IndividualMountain data={this.state.data} />
+					)} />
 				</section>
 			</BrowserRouter>
 		)
