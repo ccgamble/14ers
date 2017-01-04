@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "webpack-dev-server --devtool --inline --hot",
+    "start": "webpack-dev-server --hot --inline",
     "build": "webpack",
     "test": "mocha --compilers js:babel-register --require test/helpers/setup.js --recursive"
   },
@@ -38,12 +38,14 @@
     "eslint-plugin-import": "^2.1.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.5.0",
+    "excel-as-json": "^1.0.4",
     "firebase-tools": "^3.0.7",
     "jsdom": "^9.5.0",
     "mocha": "^3.0.2",
     "mocha-loader": "^1.0.0",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.10.0",
+    "react-router": "^4.0.0-alpha.6",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
