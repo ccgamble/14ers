@@ -90,6 +90,7 @@ export default class IndividualMountain extends Component {
 
 
   render(){
+
 		return (
 			<div className = "individual-mountain">
 				<section className="mountain-info">
@@ -99,6 +100,7 @@ export default class IndividualMountain extends Component {
 
 				</section>
 				<div id="wikiInfo">&nbsp;</div>
+				<button>Favorite</button>
 			</div>
 		)
 	}
