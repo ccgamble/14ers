@@ -10,7 +10,6 @@ class HomePage extends Component {
 		this.state = {
 			selectedData: []
 		}
-
 	}
 
 onItemClick(data, e) {
@@ -21,28 +20,27 @@ onItemClick(data, e) {
 	})
 }
 
-			render() {
+	render() {
 
-				let mountainList = this.props.data.map((data) => {
-					let boundItemClick = this.onItemClick.bind(this, data)
-					return data.name.toLowerCase().includes(this.props.searchString.toLowerCase()) ? (<li key={data.rank}><Link to={`/${data.name}`} onClick={boundItemClick}>{data.name}</Link>, Elevation: {data.elevation} ft, Difficulty: {data.difficulty}</li>) : null
-				})
+		let mountainList = this.props.data.map((data) => {
+			let boundItemClick = this.onItemClick.bind(this, data)
+			return data.name.toLowerCase().includes(this.props.searchString.toLowerCase()) ?
+			(<li key={data.rank}><Link to={`/${data.name}`} onClick={boundItemClick}>{data.name}</Link>, Elevation: {data.elevation} ft, Difficulty: {data.difficulty}</li>) :
+			null
+		})
 
-
-				return (
-					<BrowserRouter>
-						<div>
-							<Match exactly pattern="/:name" render={ () => (
-								<IndividualMountain data={this.props.data} selectedData={this.state.selectedData} />
-							)} />
-							{mountainList}
-
-
-					</div>
-				</BrowserRouter>
-				)
-			}
-		}
+		return (
+			<BrowserRouter>
+				<div>
+					<Match exactly pattern="/:name" render={ () => (
+						<IndividualMountain data={this.props.data} selectedData={this.state.selectedData} />
+					)} />
+					{mountainList}
+			</div>
+		</BrowserRouter>
+		)
+	}
+}
 
 
 
