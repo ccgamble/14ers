@@ -7,13 +7,15 @@ export default class IndividualMountain extends Component {
 		super();
 		this.state = {
 			weather: [],
-			destination: ''
+			destination: '',
+			image: []
 		}
 	}
 
 	componentDidMount() {
 		this.getMountainWeather();
 		this.setLocation();
+		this.getMountainImage();
 	}
 
 getMountainWeather() {
@@ -35,6 +37,27 @@ getMountainWeather() {
 	});
 }
 
+getMountainImage() {
+	const mountainImg = this.props.selectedData.name
+	const url = "http://en.wikipedia.org/w/api.php?action=query&titles=" + mountainImg + "&prop=pageimages&format=json&pithumbsize=300"
+
+
+	$.ajax({
+		type:"GET",
+		url: 	url,
+		async: true,
+		dataType: "jsonp",
+		success:(result) => {
+			this.setState({image: Object.values(result.query.pages)[0].thumbnail.source})
+		},
+
+		error:(errorMessage) => {
+			alert("Error");
+		}
+	});
+}
+
+
 	setLocation(){
 		this.setState({
 			destination: this.props.selectedData.name.split(' ').join('+')
@@ -43,8 +66,10 @@ getMountainWeather() {
 
   render(){
 
+
 		return (
 			<div className = "individual-mountain">
+				<img src={this.state.image} />
 				<section className="mountain-info">
 					<div className="individual-mountain-snapshot snapshot-container">
 					<h3>{this.props.selectedData.name}</h3>
@@ -58,7 +83,7 @@ getMountainWeather() {
 					</div>
 
 					<div className="routes">
-						<h4>Routes</h4>
+						<h4>Route</h4>
 						<p>{this.props.selectedData.route}</p>
 					</div>
 				</section>
