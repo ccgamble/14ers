@@ -8,7 +8,9 @@ export default class IndividualMountain extends Component {
 		this.state = {
 			mountainData: [],
 			mountainDataImg: [],
-			weather: []
+			weather: [],
+			directionsInput: '',
+			directionsOutput: ''
 		}
 	}
 
@@ -60,25 +62,50 @@ getMountainWeather() {
 	const longitude = this.props.selectedData.locationLongitude
 
 	$.ajax({
-				type:"GET",
-				url: 	`https://api.wunderground.com/api/d0f02edcc8d2612b/conditions/forecast10day/alerts/hourly10day/q/${latitude},${longitude}.json`,
-				async: true,
-				dataType: "json",
-				success:(result) => {
+		type:"GET",
+		url: 	`https://api.wunderground.com/api/d0f02edcc8d2612b/conditions/forecast10day/alerts/hourly10day/q/${latitude},${longitude}.json`,
+		async: true,
+		dataType: "json",
+		success:(result) => {
 
-					this.setState({weather: result.forecast.simpleforecast.forecastday})
-					console.log(this.state.weather)
-
-				},
-
-				error:(errorMessage) => {
-					alert("Error");
-				}
-			});
-	}
+			this.setState({weather: result.forecast.simpleforecast.forecastday})
 
 
+		},
 
+		error:(errorMessage) => {
+			alert("Error");
+		}
+	});
+}
+
+	// getMountainDirections() {
+	// 	const origin = this.props.selectedData.name
+	// 	const destination = this.state.directionsInput
+	// 	const url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&key=AIzaSyAWy6SdiM7S0t53eI7ePLZaTTBD5oEvnHI"
+	// 	console.log(url)
+	// 	$.ajax({
+	// 		type:"GET",
+	// 		url: 	url,
+	// 		async: true,
+	// 		dataType: "json",
+	// 		success:(result) => {
+	//
+	// 			this.setState({directionsOutput: result})
+	// 			console.log(this.state.directionsOutput)
+	//
+	// 		},
+	//
+	// 		error:(errorMessage) => {
+	// 			alert("Error");
+	// 		}
+	// 	});
+	// }
+	//
+	//
+	// handleDirections(directionsInput) {
+	// 	this.setState({ directionsInput: directionsInput})
+	// }
 
 
 // getMountainDataImage() {
@@ -151,11 +178,21 @@ getMountainWeather() {
 		return (
 			<div className = "individual-mountain">
 				<section className="mountain-info">
+					<div className="individual-mountain-snapshot">
 					<h3>{this.state.mountainData[0]}</h3>
+						<p><span className='snapshot-label'>Rank: </span> {this.props.selectedData.elevation}</p>
+						<p><span className='snapshot-label'>Elevation: </span>{this.props.selectedData.elevation} feet</p>
+						<p><span className='snapshot-label'>Mountain Range: </span>{this.props.selectedData.mountainRange}</p>
+						<p><span className='snapshot-label'>Difficulty: </span>{this.props.selectedData.difficulty}</p>
+						<p><span className='snapshot-label'>Elevation Gain: </span>{this.props.selectedData.elevationGain} feet</p>
+						<p><span className='snapshot-label'>Round Trip Distance: </span>{this.props.selectedData.rtDistance} miles</p>
+						<p><span className='snapshot-label'>Round Trip Time: </span>{this.props.selectedData.rtTime} hours</p>
+					</div>
 					<p>{this.state.mountainData[2]}</p>
 					{/* <section id="output">{this.state.mountainDataImg}</section>
 					<img src= /> */}
-
+					<h4>Routing Information</h4>
+					<p>{this.props.selectedData.route}</p>
 				</section>
 				<div id="wikiInfo">&nbsp;</div>
 				<button>Favorite</button>
@@ -191,6 +228,13 @@ getMountainWeather() {
 
 					</div>
 				</section>
+				{/* <section className='directions'>
+					<input id = "directions-input"
+						placeholder="Starting Point"
+						onChange={(e) =>{this.handleDirections(e.target.value)}}
+					/>
+					<button type="submit" className="direction-submit-btn" onSubmit={console.log('hello')}>Submit</button>
+				</section> */}
 			</div>
 		)
 	}
