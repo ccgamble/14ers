@@ -1,15 +1,21 @@
-
-import React from 'react';
+import React, { Component } from 'react';
 import firebase, {signIn, signOut} from '../firebase';
 
-const SignIn = () => {
-  return (
-    <aside>
-     <button id="sign-in-btn" onClick={() => signIn()}>
-     SIGN IN
-     </button>
-    </aside>
-  )
-}
+class SignIn extends Component {
+	render() {
+		let logIn;
+		if (!this.props.user) {
+			logIn = <button id="logIn-btn" onClick={() => signIn()}>Log In</button>
+		} else {
+			logIn = ""
+		}
+
+		return (
+			<section className="signIn-container">
+			{logIn}
+			</section>
+		)
+		}
+	}
 
 module.exports = SignIn
