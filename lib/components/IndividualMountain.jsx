@@ -8,8 +8,6 @@ export default class IndividualMountain extends Component {
 		this.state = {
 			weather: [],
 			destination: ''
-			// directionsInput: '',
-			// directionsOutput: ''
 		}
 	}
 
@@ -17,11 +15,6 @@ export default class IndividualMountain extends Component {
 		this.getMountainWeather();
 		this.setLocation();
 	}
-
-
-
-
-
 
 getMountainWeather() {
 	const latitude = this.props.selectedData.locationLatitude
