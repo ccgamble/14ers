@@ -8,6 +8,7 @@ import HomePage from './HomePage'
 import mountainData from '../data.js'
 import SignIn from './SignIn'
 import SignOut from './SignOut'
+import Header from './Header'
 
 
 
@@ -70,12 +71,13 @@ class Application extends Component {
 		return(
 			<BrowserRouter>
 				<section>
-					<SignIn user={this.state.user}/>
-					<SignOut user={this.state.user}/>
-					<Search onSearch={this.updateSearch.bind(this)}/>
+					<Header />
 					<Match exactly pattern="/" render={ () => (
 						<HomePage data={this.state.data} searchString={this.state.searchString} />
 					)} />
+					<SignIn user={this.state.user}/>
+					<SignOut user={this.state.user}/>
+					<Search onSearch={this.updateSearch.bind(this)}/>
 				</section>
 			</BrowserRouter>
 		)

@@ -35,6 +35,7 @@ onItemClick(data, e) {
 					<Match exactly pattern="/:name" render={ () => (
 						<IndividualMountain data={this.props.data} selectedData={this.state.selectedData} />
 					)} />
+					<img className="main-image" src="../images/background-photo.jpg" />
 					{mountainList}
 			</div>
 		</BrowserRouter>
