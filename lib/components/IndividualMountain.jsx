@@ -7,6 +7,7 @@ export default class IndividualMountain extends Component {
 		super();
 		this.state = {
 			weather: [],
+			destination: ''
 			// directionsInput: '',
 			// directionsOutput: ''
 		}
@@ -14,6 +15,7 @@ export default class IndividualMountain extends Component {
 
 	componentDidMount() {
 		this.getMountainWeather();
+		this.setLocation();
 	}
 
 
@@ -40,50 +42,20 @@ getMountainWeather() {
 	});
 }
 
-	getMountainDirections() {
-		const origin = this.props.selectedData.name
-		const destination = this.state.directionsInput
-		const url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&key=AIzaSyAWy6SdiM7S0t53eI7ePLZaTTBD5oEvnHI"
-		console.log(url)
-		$.ajax({
-			type:"GET",
-			url: 	url,
-			async: true,
-			dataType: "json",
-			success:(result) => {
-
-				this.setState({directionsOutput: result})
-				console.log(this.state.directionsOutput)
-
-			},
-
-			error:(errorMessage) => {
-				alert("Error");
-			}
-		});
+	setLocation(){
+		this.setState({
+			destination: this.props.selectedData.name.split(' ').join('+')
+		})
 	}
-
-
-	handleDirections(directionsInput) {
-		this.setState({ directionsInput: directionsInput})
-	}
-
-
-
-
-
-
-
-
-
 
   render(){
+
 		return (
 			<div className = "individual-mountain">
 				<section className="mountain-info">
 					<div className="individual-mountain-snapshot snapshot-container">
 					<h3>{this.props.selectedData.name}</h3>
-						<p><span className='snapshot-label'>Rank: </span> {this.props.selectedData.elevation}</p>
+						<p><span className='snapshot-label'>Rank: </span> {this.props.selectedData.rank}</p>
 						<p><span className='snapshot-label'>Elevation: </span>{this.props.selectedData.elevation} feet</p>
 						<p><span className='snapshot-label'>Mountain Range: </span>{this.props.selectedData.mountainRange}</p>
 						<p><span className='snapshot-label'>Difficulty: </span>{this.props.selectedData.difficulty}</p>
@@ -92,8 +64,10 @@ getMountainWeather() {
 						<p><span className='snapshot-label'>Round Trip Time: </span>{this.props.selectedData.rtTime} hours</p>
 					</div>
 
-					<h4>Routing Information</h4>
-					<p>{this.props.selectedData.route}</p>
+					<div className="routes">
+						<h4>Routes</h4>
+						<p>{this.props.selectedData.route}</p>
+					</div>
 				</section>
 
 				<button>Favorite</button>
@@ -126,32 +100,16 @@ getMountainWeather() {
 						</div>
 				)
 			})}
+			</div>
+			</section>
 
-					</div>
-				</section>
-				<section className='directions'>
-					<input id = "directions-input"
-						placeholder="Starting Point"
-						onChange={(e) =>{this.handleDirections(e.target.value)}}
-					/>
-					<button type="submit" className="direction-submit-btn" onClick={console.log('hello')}>Submit</button>
-				</section>
+			<iframe
+			  width="600"
+			  height="450"
+			  frameBorder="0"
+			  src= 'https://www.google.com/maps/embed/v1/place?key=AIzaSyCbEa9uWxtIVMbnRqlNFehAuU6E96RNRfk&q=mount+elbert' >
+			</iframe>
 			</div>
 		)
 	}
 }
-
-
-
-//
-// getMountainData() {
-// 	const mountain = this.props.selectedData.name
-// 	const url = "https://en.wikipedia.org/w/api.php?action=parse&format=json&origin=*&page=" + mountain + "&prop=text%7Cimages%7Cdisplaytitle&section=0"
-//
-// 	$.getJSON(url , function(json) {
-//
-// 		$('#wikiInfo').html(json.parse.text['*']);
-// 		$("#wikiInfo").find("a:not(.references a)").attr("href", function(){ return "http://www.wikipedia.org" + $(this).attr("href");});
-// 		$("#wikiInfo").find("a").attr("target", "_blank");
-// 	});
-// };

@@ -1,3 +1,54 @@
+body {
+font-family: 'Archivo Black', sans-serif;
+}
+
 .main-image {
 	width:100vw;
+}
+
+.app-description-container {
+	position: relative;
+  margin: auto;
+}
+
+h2{
+	font-size: 36px;
+	margin: 30px;
+}
+
+.app-description {
+	position: absolute;
+	color: white;
+	text-align: center;
+	font-size: 24px;
+	font-family: 'Archivo Narrow', sans-serif;
+	z-index: 2;
+	bottom:40px;
+	width: 550px;
+	right: 15px;
+}
+
+li {
+ list-style-type: none;
+ margin: 30px;
+ }
+
+ a:link {
+    text-decoration: none;
+		color: inherit;
+		font-weight: bold;
+}
+
+a:visited {
+    text-decoration: none;
+		color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+		color: inherit;
 }

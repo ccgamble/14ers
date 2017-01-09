@@ -35,7 +35,11 @@ onItemClick(data, e) {
 					<Match exactly pattern="/:name" render={ () => (
 						<IndividualMountain data={this.props.data} selectedData={this.state.selectedData} />
 					)} />
-					<img className="main-image" src="../images/background-photo.jpg" />
+					<div className="app-description-container">
+					<img className="main-image" src="../images/background-photo.png" />
+						<p className="app-description">Reach maximum potential with PEAKeasy, an app for climbing Colorado’s 14ers. Research future expeditions, mark favorite peaks, and log climbs you’ve already completed.</p>
+					</div>
+					<h2>Colorado 14ers</h2>
 					{mountainList}
 			</div>
 		</BrowserRouter>
