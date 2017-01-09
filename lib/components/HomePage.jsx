@@ -13,7 +13,6 @@ class HomePage extends Component {
 	}
 
 onItemClick(data, e) {
-
 	let individualData = data
 	this.setState({
 		selectedData: individualData
@@ -21,28 +20,27 @@ onItemClick(data, e) {
 }
 
 	render() {
-
 		let mountainList = this.props.data.map((data) => {
 			let boundItemClick = this.onItemClick.bind(this, data)
 			return data.name.toLowerCase().includes(this.props.searchString.toLowerCase()) ?
-			(<li key={data.rank}><Link to={`/${data.name}`} onClick={boundItemClick}>{data.name}</Link>, Elevation: {data.elevation} ft, Difficulty: {data.difficulty}</li>) :
+			(<li className="mountain-listitem" key={data.rank}><Link to={`/${data.name}`} onClick={boundItemClick}>{data.name}</Link>, Elevation: {data.elevation} ft, Difficulty: {data.difficulty}</li>) :
 			null
+
 		})
 
 		return (
-			<BrowserRouter>
 				<div>
-					<Match exactly pattern="/:name" render={ () => (
-						<IndividualMountain data={this.props.data} selectedData={this.state.selectedData} />
-					)} />
+
 					<div className="app-description-container">
 					<img className="main-image" src="../images/background-photo.png" />
 						<p className="app-description">Reach maximum potential with PEAKeasy, an app for climbing Colorado’s 14ers. Research future expeditions, mark favorite peaks, and log climbs you’ve already completed.</p>
 					</div>
 					<h2>Colorado 14ers</h2>
-					{mountainList}
+					<div className="mountain-list">
+						{mountainList}
+					</div>
+
 			</div>
-		</BrowserRouter>
 		)
 	}
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-
+import data from '../data.js'
 
 export default class IndividualMountain extends Component {
 	constructor() {
@@ -8,8 +8,16 @@ export default class IndividualMountain extends Component {
 		this.state = {
 			weather: [],
 			destination: '',
-			image: []
+			image: [],
+			location: {}
 		}
+	}
+
+	componentWillMount() {
+		let location = data.find((item) => {
+			return item.name.replace(/[^a-zA-Z]/g, '') === window.location.pathname.replace(/[^a-zA-Z]/g, '')
+		})
+		this.setState({location: location})
 	}
 
 	componentDidMount() {
@@ -19,8 +27,8 @@ export default class IndividualMountain extends Component {
 	}
 
 getMountainWeather() {
-	const latitude = this.props.selectedData.locationLatitude
-	const longitude = this.props.selectedData.locationLongitude
+	const latitude = this.state.location.locationLatitude
+	const longitude = this.state.location.locationLongitude
 
 	$.ajax({
 		type:"GET",
@@ -38,7 +46,7 @@ getMountainWeather() {
 }
 
 getMountainImage() {
-	const mountainImg = this.props.selectedData.name
+	const mountainImg = this.state.location.name
 	const url = "http://en.wikipedia.org/w/api.php?action=query&titles=" + mountainImg + "&prop=pageimages&format=json&pithumbsize=300"
 
 
@@ -60,31 +68,31 @@ getMountainImage() {
 
 	setLocation(){
 		this.setState({
-			destination: this.props.selectedData.name.split(' ').join('+')
+			destination: this.state.location.name.split(' ').join('+')
 		})
 	}
 
   render(){
-
+		let apiCall = `https://www.google.com/maps/embed/v1/place?key=AIzaSyCbEa9uWxtIVMbnRqlNFehAuU6E96RNRfk&q=${this.state.location.name.toLowerCase().replace(' ', '+')}`
 
 		return (
 			<div className = "individual-mountain">
 				<img src={this.state.image} />
 				<section className="mountain-info">
 					<div className="individual-mountain-snapshot snapshot-container">
-					<h3>{this.props.selectedData.name}</h3>
-						<p><span className='snapshot-label'>Rank: </span> {this.props.selectedData.rank}</p>
-						<p><span className='snapshot-label'>Elevation: </span>{this.props.selectedData.elevation} feet</p>
-						<p><span className='snapshot-label'>Mountain Range: </span>{this.props.selectedData.mountainRange}</p>
-						<p><span className='snapshot-label'>Difficulty: </span>{this.props.selectedData.difficulty}</p>
-						<p><span className='snapshot-label'>Elevation Gain: </span>{this.props.selectedData.elevationGain} feet</p>
-						<p><span className='snapshot-label'>Round Trip Distance: </span>{this.props.selectedData.rtDistance} miles</p>
-						<p><span className='snapshot-label'>Round Trip Time: </span>{this.props.selectedData.rtTime} hours</p>
+					<h3>{this.state.location.name}</h3>
+						<p><span className='snapshot-label'>Rank: </span> {this.state.location.rank}</p>
+						<p><span className='snapshot-label'>Elevation: </span>{this.state.location.elevation} feet</p>
+						<p><span className='snapshot-label'>Mountain Range: </span>{this.state.location.mountainRange}</p>
+						<p><span className='snapshot-label'>Difficulty: </span>{this.state.location.difficulty}</p>
+						<p><span className='snapshot-label'>Elevation Gain: </span>{this.state.location.elevationGain} feet</p>
+						<p><span className='snapshot-label'>Round Trip Distance: </span>{this.state.location.rtDistance} miles</p>
+						<p><span className='snapshot-label'>Round Trip Time: </span>{this.state.location.rtTime} hours</p>
 					</div>
 
 					<div className="routes">
 						<h4>Route</h4>
-						<p>{this.props.selectedData.route}</p>
+						<p>{this.state.location.route}</p>
 					</div>
 				</section>
 
@@ -125,7 +133,7 @@ getMountainImage() {
 			  width="600"
 			  height="450"
 			  frameBorder="0"
-			  src= 'https://www.google.com/maps/embed/v1/place?key=AIzaSyCbEa9uWxtIVMbnRqlNFehAuU6E96RNRfk&q=mount+elbert' >
+			  src={apiCall} >
 			</iframe>
 			</div>
 		)

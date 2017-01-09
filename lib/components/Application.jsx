@@ -66,6 +66,8 @@ class Application extends Component {
 
 
 
+
+
 	render() {
 
 		return(
@@ -75,6 +77,9 @@ class Application extends Component {
 					<Match exactly pattern="/" render={ () => (
 						<HomePage data={this.state.data} searchString={this.state.searchString} />
 					)} />
+					<Match exactly pattern="/:name" render={ () =>
+						<IndividualMountain /> }
+					/>
 					<SignIn user={this.state.user}/>
 					<SignOut user={this.state.user}/>
 					<Search onSearch={this.updateSearch.bind(this)}/>
