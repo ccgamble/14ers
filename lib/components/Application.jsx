@@ -17,7 +17,6 @@ class Application extends Component {
     super();
 			this.state = {
 				data: [],
-
 				user: null,
 				mountainDatabase: null,
 				favorites: []
@@ -61,8 +60,11 @@ class Application extends Component {
   }
 
 
-
-
+	setFavorite(mountainName) {
+		this.setState({
+			favorites: mountainName
+		});
+	}
 
 
 
@@ -71,12 +73,15 @@ class Application extends Component {
 		return(
 			<BrowserRouter>
 				<section>
-					<Header user={this.props.user}/>
+					<Header/>
 					<Match exactly pattern="/" render={ () => (
-						<HomePage data={this.state.data} searchString={this.state.searchString} />
+						<HomePage data={this.state.data} searchString={this.state.searchString} user={this.state.user}/>
 					)} />
-					<Match exactly pattern="/:name" render={ () =>
-						<IndividualMountain /> } />
+					<SignIn user={this.state.user}/>
+					<SignOut user={this.state.user}/>
+					<Match exactly pattern="/:name" render={ () => (
+						<IndividualMountain setFavorite={this.setFavorite.bind(this)}/>
+					)} />
 
 				</section>
 			</BrowserRouter>

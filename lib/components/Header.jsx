@@ -11,8 +11,7 @@ class Header extends Component {
 	render() {
 	  return (
 	    <header>
-			<SignIn user={this.props.user}/>
-			<SignOut user={this.props.user}/>
+		
 	      <Link to='/'>
 					<img className="header-photo" src="../images/PEAKeasy-logo2.png" />
 	      </Link>

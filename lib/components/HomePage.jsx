@@ -45,7 +45,7 @@ updateSearch(searchString) {
 
 
 		return (
-			<BrowserRouter>
+
 				<div>
 					<div className="app-description-container">
 					<img className="main-image" src="../images/background-photo.png" />
@@ -57,7 +57,7 @@ updateSearch(searchString) {
 					</div>
 
 				</div>
-			</BrowserRouter>
+
 		)
 	}
 }

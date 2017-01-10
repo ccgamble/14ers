@@ -56,7 +56,8 @@ getMountainImage() {
 		async: true,
 		dataType: "jsonp",
 		success:(result) => {
-			this.setState({image: Object.values(result.query.pages)[0].thumbnail.source})
+			if (Object.values(result.query.pages)[0].thumbnail)
+			{this.setState({image: Object.values(result.query.pages)[0].thumbnail.source})}
 		},
 
 		error:(errorMessage) => {
@@ -96,7 +97,7 @@ getMountainImage() {
 					</div>
 				</section>
 
-				<button>Favorite</button>
+				<button onClick={()=>{this.props.setFavorite(this.state.location.name)}}>Favorite</button>
 				<button>Completed</button>
 				<section className="weather">
 					<h3>Weather Forecast</h3>
