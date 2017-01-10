@@ -4,16 +4,15 @@ import SignIn from './SignIn'
 import SignOut from './SignOut'
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-		}
-
+  constructor() {
+    super();
+	}
 
 	render() {
 	  return (
 	    <header>
-				<SignIn user={this.props.user}/>
-				<SignOut user={this.props.user}/>
+			<SignIn user={this.props.user}/>
+			<SignOut user={this.props.user}/>
 	      <Link to='/'>
 					<img className="header-photo" src="../images/PEAKeasy-logo2.png" />
 	      </Link>

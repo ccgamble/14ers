@@ -65,19 +65,18 @@ class Application extends Component {
 
 
 
+
 	render() {
 
 		return(
 			<BrowserRouter>
 				<section>
-					<Header user={this.state.user}/>
+					<Header user={this.props.user}/>
 					<Match exactly pattern="/" render={ () => (
-						<HomePage data={this.state.data} searchString={this.state.searchString} user={this.state.user} />
+						<HomePage data={this.state.data} searchString={this.state.searchString} />
 					)} />
 					<Match exactly pattern="/:name" render={ () =>
-						<IndividualMountain /> }
-					/>
-
+						<IndividualMountain /> } />
 
 				</section>
 			</BrowserRouter>
