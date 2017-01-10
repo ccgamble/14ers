@@ -17,7 +17,7 @@ class Application extends Component {
     super();
 			this.state = {
 				data: [],
-				searchString: '',
+
 				user: null,
 				mountainDatabase: null,
 				favorites: []
@@ -60,9 +60,6 @@ class Application extends Component {
     }
   }
 
-	updateSearch(searchString) {
-		this.setState({searchString: searchString});
-	}
 
 
 
@@ -73,16 +70,15 @@ class Application extends Component {
 		return(
 			<BrowserRouter>
 				<section>
-					<Header />
+					<Header user={this.state.user}/>
 					<Match exactly pattern="/" render={ () => (
-						<HomePage data={this.state.data} searchString={this.state.searchString} />
+						<HomePage data={this.state.data} searchString={this.state.searchString} user={this.state.user} />
 					)} />
 					<Match exactly pattern="/:name" render={ () =>
 						<IndividualMountain /> }
 					/>
-					<SignIn user={this.state.user}/>
-					<SignOut user={this.state.user}/>
-					<Search onSearch={this.updateSearch.bind(this)}/>
+
+
 				</section>
 			</BrowserRouter>
 		)

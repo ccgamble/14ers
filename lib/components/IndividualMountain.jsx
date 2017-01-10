@@ -77,9 +77,9 @@ getMountainImage() {
 
 		return (
 			<div className = "individual-mountain">
-				<img src={this.state.image} />
 				<section className="mountain-info">
 					<div className="individual-mountain-snapshot snapshot-container">
+					<img className="mountain-image" src={this.state.image} />
 					<h3>{this.state.location.name}</h3>
 						<p><span className='snapshot-label'>Rank: </span> {this.state.location.rank}</p>
 						<p><span className='snapshot-label'>Elevation: </span>{this.state.location.elevation} feet</p>

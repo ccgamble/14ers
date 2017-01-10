@@ -14,7 +14,7 @@ h4 {
 }
 
 .snapshot-container {
-
+	position: relative;
 	text-align: left;
 	font-size: 20px;
 	font-weight:100;
@@ -24,8 +24,18 @@ h4 {
 	vertical-align: top;
 }
 
+.snapshot-container p {
+	margin-top: 10px;
+}
+
+
+.mountain-image {
+	position: absolute;
+	right: 100px;
+	top: 50px;
+}
 .routes {
-	
+
 	text-align: left;
 	font-size: 20px;
 	font-weight:100;
