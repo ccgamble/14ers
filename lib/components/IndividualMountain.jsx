@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import data from '../data.js'
+import BasicInfo from './BasicInfo'
+import Routes from './Routes'
+import Weather from './Weather'
+import Directions from './Directions'
 
 export default class IndividualMountain extends Component {
 	constructor() {
@@ -65,8 +69,6 @@ getMountainImage() {
 		}
 	});
 }
-
-
 	setLocation(){
 		this.setState({
 			destination: this.state.location.name.split(' ').join('+')
@@ -74,68 +76,18 @@ getMountainImage() {
 	}
 
   render(){
-		let apiCall = `https://www.google.com/maps/embed/v1/place?key=AIzaSyCbEa9uWxtIVMbnRqlNFehAuU6E96RNRfk&q=${this.state.location.name.toLowerCase().replace(' ', '+')}`
+		const {image, location, weather} = this.state
 
 		return (
 			<div className = "individual-mountain">
-				<section className="mountain-info">
-					<div className="individual-mountain-snapshot snapshot-container">
-					<img className="mountain-image" src={this.state.image} />
-					<h3>{this.state.location.name}</h3>
-						<p><span className='snapshot-label'>Rank: </span> {this.state.location.rank}</p>
-						<p><span className='snapshot-label'>Elevation: </span>{this.state.location.elevation} feet</p>
-						<p><span className='snapshot-label'>Mountain Range: </span>{this.state.location.mountainRange}</p>
-						<p><span className='snapshot-label'>Difficulty: </span>{this.state.location.difficulty}</p>
-						<p><span className='snapshot-label'>Elevation Gain: </span>{this.state.location.elevationGain} feet</p>
-						<p><span className='snapshot-label'>Round Trip Distance: </span>{this.state.location.rtDistance} miles</p>
-						<p><span className='snapshot-label'>Round Trip Time: </span>{this.state.location.rtTime} hours</p>
-					</div>
-
-					<div className="routes">
-						<h4>Route</h4>
-						<p>{this.state.location.route}</p>
-					</div>
+				<section className="basic-info">
+					<BasicInfo image={image} location={location}/>
+					<button onClick={()=>{this.props.setFavorite(this.state.location.name)}}>Favorite</button>
+					<button>Completed</button>
 				</section>
-
-				<button onClick={()=>{this.props.setFavorite(this.state.location.name)}}>Favorite</button>
-				<button>Completed</button>
-				<section className="weather">
-					<h3>Weather Forecast</h3>
-					<div>
-						{this.state.weather.map((item, index) => {
-							return (
-								<div className='day card-container' key={item.date.day}>
-									<h4 className='weekday card-main card-main-info' >
-										{item.date.weekday}
-									</h4>
-									<span className='month-name card-main-info'>{item.date.monthname}</span>
-									<span className='month-day card-main-info'> {item.date.day}, </span>
-									<span className='year card-main-info'>{item.date.year}</span>
-									<p className='card-main-info'>{item.conditions}</p>
-							<img
-								src={item.icon_url}
-							/>
-								<p className='temp-high card-main-info'>
-									High: {item.high.fahrenheit}&deg;
-								</p>
-								<p className='temp-low card-main-info'>
-									Low: {item.low.fahrenheit}&deg;
-								</p>
-								<p className='wind card-main-info'>
-									Wind: {item.avewind.mph}-{item.maxwind.mph}mph {item.maxwind.dir}
-								</p>
-						</div>
-				)
-			})}
-			</div>
-			</section>
-
-			<iframe
-			  width="600"
-			  height="450"
-			  frameBorder="0"
-			  src={apiCall} >
-			</iframe>
+				<Routes location={location} />
+				<Weather weather={weather} />
+				<Directions location={location} />
 			</div>
 		)
 	}
