@@ -74,11 +74,11 @@ class Application extends Component {
 			<BrowserRouter>
 				<section>
 					<Header/>
+					<SignIn user={this.state.user}/>
+					<SignOut user={this.state.user}/>
 					<Match exactly pattern="/" render={ () => (
 						<HomePage data={this.state.data} searchString={this.state.searchString} user={this.state.user}/>
 					)} />
-					<SignIn user={this.state.user}/>
-					<SignOut user={this.state.user}/>
 					<Match exactly pattern="/:name" render={ () => (
 						<IndividualMountain setFavorite={this.setFavorite.bind(this)}/>
 					)} />
