@@ -29,7 +29,7 @@ updateSearch(searchString) {
 		let mountainList = this.props.data.map((data) => {
 			let boundItemClick = this.onItemClick.bind(this, data)
 			return data.name.toLowerCase().includes(this.state.searchString.toLowerCase()) ?
-			(<li className="mountain-listitem" key={data.rank}><Link to={`/${data.name}`} onClick={boundItemClick}>{data.name}</Link>, Elevation: {data.elevation} ft, Difficulty: {data.difficulty}</li>) :
+			(<Link to={`/${data.name}`} onClick={boundItemClick}><li className="mountain-listitem" key={data.rank}>{data.name}, Elevation: {data.elevation} ft, Difficulty: {data.difficulty}</li></Link> ) :
 			null
 		})
 
@@ -49,7 +49,7 @@ updateSearch(searchString) {
 				<div>
 					<div className="app-description-container">
 					<img className="main-image" src="../images/background-photo.png" />
-						<p className="app-description">Reach maximum potential with PEAKeasy, an app for climbing Colorado’s 14ers.</p>
+						<p className="app-description">PEAKeasy, an app for discovering Colorado’s 14ers.</p>
 					</div>
 					<Search onSearch={this.updateSearch.bind(this)}/>
 					<div className="mountain-list">
