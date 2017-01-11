@@ -11,7 +11,7 @@ export default class Routes extends Component {
 		const { location } = this.props
 		return(
 			<div className="routes">
-				<h4>Route</h4>
+				<h4 className="individual-mountain-header">Route</h4>
 				<p>{location.route}</p>
 			</div>
 		)

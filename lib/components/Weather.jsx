@@ -11,8 +11,8 @@ export default class Weather extends Component {
 		const { weather } = this.props
 		return(
 			<section className="weather">
-				<h3>Weather Forecast</h3>
-				<div>
+				<h4 className="individual-mountain-header">Weather Forecast</h4>
+				<div className="all-weather-cards">
 					{weather.map((item, index) => {
 						return (
 							<div className='day card-container' key={item.date.day}>

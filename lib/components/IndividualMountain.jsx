@@ -82,7 +82,7 @@ getMountainImage() {
 			<div className = "individual-mountain">
 				<section className="basic-info">
 					<BasicInfo image={image} location={location}/>
-					<button onClick={()=>{this.props.setFavorite(this.state.location.name)}}>Favorite</button>
+					<button onClick={()=>{this.props.setFavorite(this.state.location)}}>Favorite</button>
 					<button>Completed</button>
 				</section>
 				<Routes location={location} />

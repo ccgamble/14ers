@@ -6,7 +6,7 @@ class SignOut extends Component {
     let logOut;
     if (this.props.user) {
      logOut =
-      <button id="logOut-btn" onClick={() => signOut()}>
+      <button className="logIn-btn" onClick={() => signOut()}>
       Log Out
       </button>
     } else {

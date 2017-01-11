@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { map, filter } from 'lodash'
+import { map, filter, extend } from 'lodash'
 import { BrowserRouter, Match, Miss, Link } from 'react-router';
 import firebase, { signIn, signOut, reference, remove } from '../firebase';
 import Search from './Search'
@@ -18,7 +18,7 @@ class Application extends Component {
 			this.state = {
 				data: [],
 				user: null,
-				mountainDatabase: null,
+				mountainDatabase: [],
 				favorites: []
 			}
 		}
@@ -33,6 +33,7 @@ class Application extends Component {
 
 
 	referenceDatabaseUser(user){
+		console.log(firebase.database().ref(user.uid))
 		this.setState({
 			user,
 			mountainDatabase: user ? firebase.database().ref(user.uid) : null
@@ -60,10 +61,13 @@ class Application extends Component {
   }
 
 
-	setFavorite(mountainName) {
+	setFavorite(mountain) {
+		let mountainDatabase = this.state.mountainDatabase
+		mountainDatabase = mountainDatabase.push(mountain)
 		this.setState({
-			favorites: mountainName
-		});
+			mountainDatabase:	mountainDatabase
+		})
+		this.referenceDatabaseUser(this.state.user);
 	}
 
 
@@ -80,7 +84,7 @@ class Application extends Component {
 						<HomePage data={this.state.data} searchString={this.state.searchString} user={this.state.user}/>
 					)} />
 					<Match exactly pattern="/:name" render={ () => (
-						<IndividualMountain setFavorite={this.setFavorite.bind(this)}/>
+						<IndividualMountain setFavorite={(mountain)=>this.setFavorite(mountain)}/>
 					)} />
 
 				</section>

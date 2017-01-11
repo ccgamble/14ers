@@ -6,11 +6,13 @@ h3 {
 	text-align: center;
 	font-weight: bold;
 	font-size: 36px;
+	margin: 50px 0 50px 0;
 }
 
 h4 {
+	text-align: center;
 	font-weight: bold;
-	font-size: 24px;
+	font-size: 30px;
 }
 
 .snapshot-container {
@@ -18,10 +20,11 @@ h4 {
 	text-align: left;
 	font-size: 20px;
 	font-weight:100;
-	margin: 30px 0px 30px 0px;
+	margin: 10px 15vw 100px 15vw;
 	padding-left: 30px;
 	padding-right: 30px;
 	vertical-align: top;
+	width: 70vw;
 }
 
 .snapshot-container p {
@@ -39,12 +42,11 @@ h4 {
 	text-align: left;
 	font-size: 20px;
 	font-weight:100;
-	margin: 30px 0px 30px 0px;
+	margin: 30px 15vw 100px 15vw;
 	padding-left: 30px;
 	padding-right: 30px;
 	vertical-align: top;
-
-
+	width: 70vw;
 }
 
 .card-container {
@@ -67,3 +69,31 @@ h4 {
  padding-top: 10px;
  padding-bottom: 10px;
  }
+
+.weather {
+	margin-bottom: 100px;
+}
+
+.all-weather-cards {
+	width: 70vw;
+	margin: auto;
+}
+
+.individual-mountain-header {
+	 margin-bottom: 20px;
+ }
+
+
+ .googleMap-container {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	height: 0;
+	margin-bottom: 100px;
+}
+.googleMap {
+	position: absolute;
+	top: 75px;
+	right: 10%;
+	width: 80%;
+	height: 80%;
+}

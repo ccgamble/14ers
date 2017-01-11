@@ -11,12 +11,16 @@ export default class Directions extends Component {
 		let apiCall = `https://www.google.com/maps/embed/v1/place?key=AIzaSyCbEa9uWxtIVMbnRqlNFehAuU6E96RNRfk&q=${this.props.location.name.toLowerCase().replace(' ', '+')}`
 
 		return(
-			<iframe
-				width="600"
-				height="450"
-				frameBorder="0"
-				src={apiCall} >
-			</iframe>
+			<div className="googleMap-container">
+				<h4 className="individual-mountain-header">Directions</h4>
+				<iframe
+					className="googleMap"
+					width="600"
+					height="450"
+					frameBorder="0"
+					src={apiCall} >
+				</iframe>
+			</div>
 		)
 	}
 }

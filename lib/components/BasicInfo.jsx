@@ -12,7 +12,7 @@ export default class BasicInfo extends Component {
 		return(
 			<div className="individual-mountain-snapshot snapshot-container">
 			<img className="mountain-image" src={image} />
-			<h3>{location.name}</h3>
+			<h3 className="individual-mountain-header">{location.name}</h3>
 				<p><span className='snapshot-label'>Rank: </span> {location.rank}</p>
 				<p><span className='snapshot-label'>Elevation: </span>{location.elevation} feet</p>
 				<p><span className='snapshot-label'>Mountain Range: </span>{location.mountainRange}</p>
