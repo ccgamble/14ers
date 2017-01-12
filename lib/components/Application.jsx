@@ -91,20 +91,19 @@ class Application extends Component {
 		const { user, data, searchString, favorites } = this.state
 
 		return(
+		<BrowserRouter>
 			<section>
-				<BrowserRouter>
-					<Header/>
-					<SignIn user={user}/>
-					<SignOut user={user}/>
-					<Match exactly pattern="/" render={ () => (
-						<HomePage data={data} searchString={searchString} user={user}/>
-					)} />
-					<Match pattern="/:name" render={ () => (
-						<IndividualMountain setFavorite={(mountain)=>this.setFavorite(mountain)}/>
-					)} />
-
-				</BrowserRouter>
+				<Header/>
+				<SignIn user={user}/>
+				<SignOut user={user}/>
+				<Match exactly pattern="/" render={ () => (
+					<HomePage data={data} searchString={searchString} user={user}/>
+				)} />
+				<Match pattern="/:name" render={ () => (
+					<IndividualMountain setFavorite={(mountain)=>this.setFavorite(mountain)}/>
+				)} />
 			</section>
+		</BrowserRouter>
 		)
 	}
 }

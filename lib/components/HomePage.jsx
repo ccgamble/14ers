@@ -64,7 +64,7 @@ renderDifficultySymbol(difficulty){
 				if (!this.props.user) {
 					display =
 					<article id="not-signed-in">
-						To research future expeditions, mark favorite peaks, and log climbs you’ve already completed, LOG IN.
+						To research future expeditions & mark favorite peaks, please LOG IN.
 					</article>
 				} else {
 					display = mountainList
