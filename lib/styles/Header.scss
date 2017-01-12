@@ -1,0 +1,25 @@
+header {
+	background-color: #41C4EC;
+	display: inline-block;
+	height: 75px;
+	width: 100vw;
+	margin-bottom: -2px;
+}
+
+.header-photo {
+	height: 75px;
+	float: left;
+	padding-left: 10px;
+	padding-bottom: 3px;
+}
+
+.signIn-container {
+	float: right;
+	top: 10px;
+}
+
+.favorites-link {
+	float: right;
+	margin-top: 35px;
+	margin-right: 21px;
+}

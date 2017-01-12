@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { map, filter } from 'lodash'
+import { map, filter, extend } from 'lodash'
 import { BrowserRouter, Match, Miss, Link } from 'react-router';
 import firebase, { signIn, signOut, reference, remove } from '../firebase';
 import Search from './Search'
@@ -8,6 +8,8 @@ import HomePage from './HomePage'
 import mountainData from '../data.js'
 import SignIn from './SignIn'
 import SignOut from './SignOut'
+import Header from './Header'
+import DisplayFavorites from './DisplayFavorites'
 
 
 
@@ -16,9 +18,8 @@ class Application extends Component {
     super();
 			this.state = {
 				data: [],
-				searchString: '',
 				user: null,
-				mountainDatabase: null,
+				mountainDatabase: [],
 				favorites: []
 			}
 		}
@@ -59,23 +60,49 @@ class Application extends Component {
     }
   }
 
-	updateSearch(searchString) {
-		this.setState({searchString: searchString});
+
+	setFavorite(mountain) {
+		let mountainDatabase = this.state.mountainDatabase
+		this.checkForDuplicates(mountain)
+		if (this.checkForDuplicates(mountain) === 0) {
+
+			mountainDatabase = this.state.mountainDatabase.push({name: mountain.name})
+			this.setState({
+				mountainDatabase:	mountainDatabase
+			})
+			this.referenceDatabaseUser(this.state.user);
+		}
+		else {
+			alert("Already Favorited")
+		}
+}
+
+	checkForDuplicates(mountain) {
+		var duplicates = 0
+		this.state.favorites.forEach(function(favorite) {
+			 if (favorite.name === mountain.name) {duplicates ++}
+		});
+		return duplicates
 	}
 
 
 
 	render() {
+		const { user, data, searchString, favorites } = this.state
 
 		return(
 			<BrowserRouter>
 				<section>
-					<SignIn user={this.state.user}/>
-					<SignOut user={this.state.user}/>
-					<Search onSearch={this.updateSearch.bind(this)}/>
+					<Header/>
+					<SignIn user={user}/>
+					<SignOut user={user}/>
 					<Match exactly pattern="/" render={ () => (
-						<HomePage data={this.state.data} searchString={this.state.searchString} />
+						<HomePage data={data} searchString={searchString} user={user}/>
 					)} />
+					<Match pattern="/:name" render={ () => (
+						<IndividualMountain setFavorite={(mountain)=>this.setFavorite(mountain)}/>
+					)} />
+
 				</section>
 			</BrowserRouter>
 		)

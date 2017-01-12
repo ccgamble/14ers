@@ -5,7 +5,7 @@ class SignIn extends Component {
 	render() {
 		let logIn;
 		if (!this.props.user) {
-			logIn = <button id="logIn-btn" onClick={() => signIn()}>Log In</button>
+			logIn = <button className="logIn-btn" onClick={() => signIn()}>Log In</button>
 		} else {
 			logIn = ""
 		}
