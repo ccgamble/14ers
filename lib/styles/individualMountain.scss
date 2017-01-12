@@ -97,3 +97,19 @@ h4 {
 	width: 80%;
 	height: 80%;
 }
+
+.favorites-button {
+	position: relative;
+	top: 12px;
+	background: none;
+	border: none;
+}
+
+.favorites-button img {
+	width: 50px;
+	margin-top: 5px;
+}
+
+.favorites-button:hover{
+	cursor: pointer;
+}

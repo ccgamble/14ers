@@ -1,8 +1,3 @@
-// header {
-//   color: white;
-//   background: blue;
-// }
-
 header {
 	background-color: #41C4EC;
 	display: inline-block;
@@ -18,7 +13,13 @@ header {
 	padding-bottom: 3px;
 }
 
-.signIn-container{
+.signIn-container {
 	float: right;
-	margin: 10px;
+	top: 10px;
+}
+
+.favorites-link {
+	float: right;
+	margin-top: 35px;
+	margin-right: 21px;
 }

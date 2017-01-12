@@ -9,6 +9,7 @@ import mountainData from '../data.js'
 import SignIn from './SignIn'
 import SignOut from './SignOut'
 import Header from './Header'
+import DisplayFavorites from './DisplayFavorites'
 
 
 
@@ -33,7 +34,6 @@ class Application extends Component {
 
 
 	referenceDatabaseUser(user){
-		console.log(firebase.database().ref(user.uid))
 		this.setState({
 			user,
 			mountainDatabase: user ? firebase.database().ref(user.uid) : null
@@ -63,27 +63,43 @@ class Application extends Component {
 
 	setFavorite(mountain) {
 		let mountainDatabase = this.state.mountainDatabase
-		mountainDatabase = mountainDatabase.push(mountain)
-		this.setState({
-			mountainDatabase:	mountainDatabase
-		})
-		this.referenceDatabaseUser(this.state.user);
+		this.checkForDuplicates(mountain)
+		if (this.checkForDuplicates(mountain) === 0) {
+
+			mountainDatabase = this.state.mountainDatabase.push({name: mountain.name})
+			this.setState({
+				mountainDatabase:	mountainDatabase
+			})
+			this.referenceDatabaseUser(this.state.user);
+		}
+		else {
+			alert("Already Favorited")
+		}
+}
+
+	checkForDuplicates(mountain) {
+		var duplicates = 0
+		this.state.favorites.forEach(function(favorite) {
+			 if (favorite.name === mountain.name) {duplicates ++}
+		});
+		return duplicates
 	}
 
 
 
 	render() {
+		const { user, data, searchString, favorites } = this.state
 
 		return(
 			<BrowserRouter>
 				<section>
 					<Header/>
-					<SignIn user={this.state.user}/>
-					<SignOut user={this.state.user}/>
+					<SignIn user={user}/>
+					<SignOut user={user}/>
 					<Match exactly pattern="/" render={ () => (
-						<HomePage data={this.state.data} searchString={this.state.searchString} user={this.state.user}/>
+						<HomePage data={data} searchString={searchString} user={user}/>
 					)} />
-					<Match exactly pattern="/:name" render={ () => (
+					<Match pattern="/:name" render={ () => (
 						<IndividualMountain setFavorite={(mountain)=>this.setFavorite(mountain)}/>
 					)} />
 

@@ -9,6 +9,9 @@ const Header = () => {
 	      <Link to='/'>
 					<img className="header-photo" src="../images/PEAKeasy-logo2.png" />
 	      </Link>
+				{/* <Link to='/favorites'> */}
+					<button className="favorites-link">Display Favorites</button>
+				{/* </Link> */}
 	    </header>
 	  )
 }
