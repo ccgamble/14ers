@@ -38,7 +38,6 @@ h4 {
 	top: 50px;
 }
 .routes {
-
 	text-align: left;
 	font-size: 20px;
 	font-weight:100;
@@ -112,4 +111,26 @@ h4 {
 
 .favorites-button:hover{
 	cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+	.mountain-image {
+		position: relative;
+		top: 50px;
+		margin-left: 12vw;
+		text-align: left;
+	}
+
+
+
+}
+
+@media screen and (max-width: 600px) {
+	.mountain-image {
+		position: relative;
+		top: 50px;
+		margin-left: 12vw;
+		text-align: left;
+	}
+
 }
