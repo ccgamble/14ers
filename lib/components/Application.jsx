@@ -85,8 +85,6 @@ class Application extends Component {
 		return duplicates
 	}
 
-
-
 	render() {
 		const { user, data, searchString, favorites } = this.state
 

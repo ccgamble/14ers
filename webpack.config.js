@@ -4,9 +4,10 @@ module.exports = {
   entry: {
     main: ['babel-polyfill', './lib/index.js']
   },
-	output: {
-    path: __dirname,
-    filename: "[name].bundle.js"
+  output: {
+    path: path.join(__dirname, 'public'),
+    publicPath: '/public/',
+    filename: '[name].bundle.js',
   },
   module: {
     loaders: [
@@ -21,15 +22,10 @@ module.exports = {
       },
       { test: /\.css$/, loader: 'style!css' },
       { test: /\.scss$/, loader: 'style!css!sass' },
-			{ test: /\.json$/, loader: 'json' },
-
     ],
   },
   devtool: 'source-map',
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.scss', '.css'],
   },
-	devServer: {
-		historyApiFallback: true
-	}
 };
