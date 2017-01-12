@@ -85,26 +85,23 @@ class Application extends Component {
 		return duplicates
 	}
 
-
-
 	render() {
 		const { user, data, searchString, favorites } = this.state
 
 		return(
-			<BrowserRouter>
-				<section>
-					<Header/>
-					<SignIn user={user}/>
-					<SignOut user={user}/>
-					<Match exactly pattern="/" render={ () => (
-						<HomePage data={data} searchString={searchString} user={user}/>
-					)} />
-					<Match pattern="/:name" render={ () => (
-						<IndividualMountain setFavorite={(mountain)=>this.setFavorite(mountain)}/>
-					)} />
-
-				</section>
-			</BrowserRouter>
+		<BrowserRouter>
+			<section>
+				<Header/>
+				<SignIn user={user}/>
+				<SignOut user={user}/>
+				<Match exactly pattern="/" render={ () => (
+					<HomePage data={data} searchString={searchString} user={user}/>
+				)} />
+				<Match pattern="/:name" render={ () => (
+					<IndividualMountain setFavorite={(mountain)=>this.setFavorite(mountain)}/>
+				)} />
+			</section>
+		</BrowserRouter>
 		)
 	}
 }

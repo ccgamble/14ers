@@ -51,7 +51,7 @@ getMountainWeather() {
 
 getMountainImage() {
 	const mountainImg = this.state.location.name
-	const url = "http://en.wikipedia.org/w/api.php?action=query&titles=" + mountainImg + "&prop=pageimages&format=json&pithumbsize=300"
+	const url = "https://en.wikipedia.org/w/api.php?action=query&titles=" + mountainImg + "&prop=pageimages&format=json&pithumbsize=300"
 
 
 	$.ajax({

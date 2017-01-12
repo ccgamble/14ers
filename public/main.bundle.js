@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/public/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -51504,7 +51504,7 @@
 				var _this3 = this;
 	
 				var mountainImg = this.state.location.name;
-				var url = "http://en.wikipedia.org/w/api.php?action=query&titles=" + mountainImg + "&prop=pageimages&format=json&pithumbsize=300";
+				var url = "https://en.wikipedia.org/w/api.php?action=query&titles=" + mountainImg + "&prop=pageimages&format=json&pithumbsize=300";
 	
 				_jquery2.default.ajax({
 					type: "GET",

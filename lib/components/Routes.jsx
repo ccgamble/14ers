@@ -12,7 +12,7 @@ export default class Routes extends Component {
 		return(
 			<div className="routes">
 				<h4 className="individual-mountain-header">Route</h4>
-				<p>{location.route}</p>
+				<p className="route-info">{location.route}</p>
 			</div>
 		)
 	}
