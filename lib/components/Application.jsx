@@ -16,14 +16,13 @@ import DisplayFavorites from './DisplayFavorites'
 class Application extends Component {
   constructor() {
     super();
-			this.state = {
-				data: [],
-				user: null,
-				mountainDatabase: [],
-				favorites: []
-			}
+		this.state = {
+			data: [],
+			user: null,
+			mountainDatabase: [],
+			favorites: []
 		}
-
+	}
 
 	componentDidMount() {
 		firebase.auth().onAuthStateChanged(user => this.referenceDatabaseUser(user));
@@ -31,7 +30,6 @@ class Application extends Component {
 			data: mountainData
 		})
 	}
-
 
 	referenceDatabaseUser(user){
 		this.setState({
@@ -43,7 +41,6 @@ class Application extends Component {
 			}
 		);
 	}
-
 
   createDatabaseEventListener(user){
     if (user) {
@@ -75,7 +72,7 @@ class Application extends Component {
 		else {
 			alert("Already Favorited")
 		}
-}
+	}
 
 	checkForDuplicates(mountain) {
 		var duplicates = 0

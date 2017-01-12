@@ -51,6 +51,10 @@ h2{
 	width: 60vw;;
  }
 
+ .mountain-list {
+	 margin-top: 50px;
+ }
+
  a:link {
     text-decoration: none;
 		color: inherit;
@@ -103,4 +107,29 @@ a:active {
 	text-align: center;
 	top: 25px;
 	font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+
+	.app-description-container {
+		position: relative;
+	  margin: auto;
+	}
+
+
+	.app-description {
+		position: absolute;
+		color: white;
+		text-align: center;
+		font-size: 24px;
+		font-family: 'Archivo Narrow', sans-serif;
+		z-index: 2;
+		bottom:40px;
+		width: 550px;
+		right: 15px;
+	}
+
+	.app-title {
+		font-size: 36px;
+	}
 }
