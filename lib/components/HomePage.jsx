@@ -85,7 +85,6 @@ renderDifficultySymbol(difficulty){
 					<div className="mountain-list">
 						{display}
 					</div>
-
 				</div>
 
 		)
