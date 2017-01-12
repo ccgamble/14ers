@@ -91,8 +91,8 @@ class Application extends Component {
 		const { user, data, searchString, favorites } = this.state
 
 		return(
-			<BrowserRouter>
-				<section>
+			<section>
+				<BrowserRouter>
 					<Header/>
 					<SignIn user={user}/>
 					<SignOut user={user}/>
@@ -103,8 +103,8 @@ class Application extends Component {
 						<IndividualMountain setFavorite={(mountain)=>this.setFavorite(mountain)}/>
 					)} />
 
-				</section>
-			</BrowserRouter>
+				</BrowserRouter>
+			</section>
 		)
 	}
 }

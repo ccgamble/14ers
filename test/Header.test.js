@@ -14,8 +14,12 @@ describe('Header', () => {
    assert.equal(wrapper.type(), 'header')
  })
 
- it.skip('should render a logo', function(){
-	 const wrapper = render(<Header/>)
+ it('should render a logo', () => {
+	 const wrapper = shallow(<Header/>)
 	 assert.equal(wrapper.find('.header-photo').length, 1)
  });
+ it('should render a button for displaying favorites', () => {
+	 const wrapper = shallow(<Header />)
+	 assert.equal(wrapper.find('.favorites-link').length, 1)
+ })
 })
