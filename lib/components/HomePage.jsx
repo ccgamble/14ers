@@ -52,10 +52,15 @@ renderDifficultySymbol(difficulty){
 				 key={data.rank}>
 				 <li className="mountain-listitem">
 					 <div className='li-info'>
-					   <span className='mountain-title'>{data.name}</span>
-					   <br/>{data.elevation} ft
+					   <p className='mountain-title'>{data.name}</p>
+					   <p>Elevation: {data.elevation} ft</p>
+						 <p>Mountain Range: {data.mountainRange}</p>
+						 <p>Elevation Gain: {data.elevationGain} ft</p>
+						 <p>RT Distance: {data.rtDistance} miles</p>
+						 <p>RT Time: {data.rtTime} hours</p>
+						 <p>Difficulty: {data.difficulty}</p>
+						 {/* <p>Difficulty: {this.renderDifficultySymbol(data.difficulty)}</p> */}
 					 </div>
-					 {this.renderDifficultySymbol(data.difficulty)}
 				 </li></Link> ) :
 			null
 		})
