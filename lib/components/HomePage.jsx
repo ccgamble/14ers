@@ -25,18 +25,22 @@ updateSearch(searchString) {
 	this.setState({searchString: searchString});
 }
 
+setFavorite(e) {
+	console.log('favorite')
+}
+
 renderDifficultySymbol(difficulty){
 	if (difficulty === 1) {
-		return <img className='difficulty-symbol' src = "../../images/64px-Ski_trail_rating_symbol-green_circle.svg.png"/>
+		return <img className='difficulty-symbol' src = "../public/images/green-mountain.svg"/>
 	}
 	if (difficulty === 2) {
-		return <img className='difficulty-symbol' src='../../images/64px-Ski_trail_rating_symbol-blue_square.svg.png'/>
+		return <img className='difficulty-symbol' src='../public/images/yellow-mountain.svg'/>
 	}
 	if (difficulty === 3) {
-		return <img className='difficulty-symbol' src='../../images/64px-Ski_trail_rating_symbol-black_diamond.svg.png'/>
+		return <img className='difficulty-symbol' src='../public/images/orange-mountain.svg'/>
 	}
 	if (difficulty ===4) {
-		return <img className='difficulty-symbol' src='../../images/64px-Ski_trail_rating_symbol-double_black_diamond.svg.png'/>
+		return <img className='difficulty-symbol' src='../public/images/red-mountain.svg'/>
 	}
 	else {
 		return difficulty
@@ -53,13 +57,12 @@ renderDifficultySymbol(difficulty){
 				 <li className="mountain-listitem">
 					 <div className='li-info'>
 					   <p className='mountain-title'>{data.name}</p>
-					   <p>Elevation: {data.elevation} ft</p>
-						 <p>Mountain Range: {data.mountainRange}</p>
-						 <p>Elevation Gain: {data.elevationGain} ft</p>
+					   <p id="mountain-elevation">{data.elevation} ft</p>
+						 <p>{data.mountainRange}</p>
+						 <p><img src="../public/images/trending_up.png" /> {data.elevationGain} ft</p>
 						 <p>RT Distance: {data.rtDistance} miles</p>
 						 <p>RT Time: {data.rtTime} hours</p>
-						 <p>Difficulty: {data.difficulty}</p>
-						 {/* <p>Difficulty: {this.renderDifficultySymbol(data.difficulty)}</p> */}
+						 <p>Difficulty: {this.renderDifficultySymbol(data.difficulty)}</p>
 					 </div>
 				 </li></Link> ) :
 			null
