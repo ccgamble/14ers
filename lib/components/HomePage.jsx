@@ -3,6 +3,7 @@ import { map, filter } from 'lodash';
 import { BrowserRouter, Match, Miss, Link } from 'react-router';
 import IndividualMountain from './IndividualMountain';
 import Search from './Search';
+import MapView from './MapView'
 
 
 class HomePage extends Component {
@@ -83,7 +84,8 @@ renderDifficultySymbol(difficulty){
 
 				<div>
 					<div className="app-description-container">
-					<img className="main-image" src="../images/14er-backgroundphoto-edit.png" />
+					{/* <img className="main-image" src="../images/14er-backgroundphoto-edit.png" /> */}
+					<MapView />
 						<p className="app-description">
 							<span className="app-title">PEAKeasy</span>
 							<br/>An app for discovering Colorado’s 14ers.
@@ -98,7 +100,5 @@ renderDifficultySymbol(difficulty){
 		)
 	}
 }
-
-
 
 export default HomePage;
