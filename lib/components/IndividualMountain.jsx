@@ -18,6 +18,7 @@ export default class IndividualMountain extends Component {
 	}
 
 	componentWillMount() {
+    window.scrollTo(0, 0)
 		let location = data.find((item) => {
 			return item.name.replace(/[^a-zA-Z]/g, '') === window.location.pathname.replace(/[^a-zA-Z]/g, '')
 		})
