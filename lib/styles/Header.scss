@@ -15,11 +15,21 @@ header {
 
 .signIn-container {
 	float: right;
-	top: 10px;
+	top: 25px;
 }
 
-.favorites-link {
-	float: right;
-	margin-top: 35px;
-	margin-right: 21px;
+.logIn-btn {
+  background-color: white;
+  border: none;
+  color: #41C4EC;
+  border-radius: 50px;
+  width: 75px;
+  height: 25px;
+  font-size: 12px;
 }
+
+.logIn-btn:hover {
+  font-weight: bold;
+
+}
+
