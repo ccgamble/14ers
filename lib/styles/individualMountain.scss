@@ -20,11 +20,12 @@ h4 {
 	text-align: left;
 	font-size: 20px;
 	font-weight:100;
-	margin: 10px 15vw 100px 15vw;
+	margin: 10px 10vw 50px 10vw;
 	padding-left: 30px;
 	padding-right: 30px;
 	vertical-align: top;
-	width: 70vw;
+	width: 80vw;
+  border-bottom: 2px solid lightgray;
 }
 
 .snapshot-container p {
@@ -41,11 +42,14 @@ h4 {
 	text-align: left;
 	font-size: 20px;
 	font-weight:100;
-	margin: 30px 15vw 100px 15vw;
-	padding-left: 30px;
-	padding-right: 30px;
+	margin: 0px 10vw 50px 10vw;
 	vertical-align: top;
-	width: 70vw;
+	width: 80vw;
+  border-bottom: 2px solid lightgray;
+}
+
+.route-info {
+  margin-bottom: 50px;
 }
 
 .card-container {
@@ -64,17 +68,18 @@ h4 {
 .card-main-info{
  border-radius: 5px 5px 0 0;
  color: white;
- // height: 50%;
  padding-top: 10px;
  padding-bottom: 10px;
  }
 
 .weather {
-	margin-bottom: 100px;
+  margin: 30px 10vw 50px 10vw;
+  width: 80vw;
+  border-bottom: 2px solid lightgray;
 }
 
 .all-weather-cards {
-	width: 70vw;
+	width: 80vw;
 	margin: auto;
 }
 
@@ -111,6 +116,12 @@ h4 {
 
 .favorites-button:hover{
 	cursor: pointer;
+}
+
+.completed-button {
+  background: none;
+  border: none;
+  margin-bottom: 50px;
 }
 
 @media screen and (max-width: 800px) {
