@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/ccgamble/PEAKeasy.png?label=ready&title=Ready)](https://waffle.io/ccgamble/PEAKeasy)
 ## Project Name & Pitch
 
 PEAKeasy 
@@ -6,7 +7,7 @@ An application used for discovering Colorado's 14ers, built with React, JavaScri
 
 ## Project Status
 
-This project is currently in development. Users can search for mountains by name and click on individual mountains for more information. The individual mountain page displays basic information, route information, a 10-day weather forecast, and Google maps with direction capabilities. User can favorite mountains, but functionality to display a page with all of the favorited mountains is in progress. I have started to build an overview map showing all of the 14ers with the ability to click on each point and get the name or general information in Mapbox. Once this is completed, it will be included. Also, I plan to create functionality for sorting the list of mountains by different parameters.
+This project is currently in development. Users can search for mountains by name and click on individual mountains for more information. The homepage displays an overview map showing all of Colorado's 14ers, which was craeted in Mapbox and implemented with react-leaflet. The individual mountain page displays basic information, route information, a 10-day weather forecast, and Google maps with direction capabilities. User can favorite mountains and mark mountains as completed, but functionality to display a page with those selected is in progress. Also, I plan to create functionality for sorting the list of mountains by different parameters.
 
 ## Installation and Setup Instructions
 
@@ -35,4 +36,4 @@ I am an avid hiker, so I wanted to build an application that allowed users to se
 
 One of the main challenges I ran into was gathering the information for this application. In the end, I hit three APIs and also created an extensive database that the application also pulled from. The three APIs are Wikipedia for images, Weather Underground for the 10-day weather forecast, and Google Maps for the map and directions. Originally I planned on pulling most of the general information and routes data from Wikipedia, and I spent several days trying to parse through the API to get the desired information. However, each Wikipedia page is setup differently, so there was no way to dyncamically parse through the information. As a result, I created my own database with the desired information.
 
-At this stage of deployment, the technologies implemented in this project are React, React-Router 4.0, Webpack, LoDash, VanillaJS, JSX, and CSS. I chose to use the `create-react-app` boilerplate to minimize initial setup.
+At this stage of deployment, the technologies implemented in this project are React, React-Router 4.0, Webpack, LoDash, VanillaJS, JSX, CSS, and Mapbox. I chose to use the `create-react-app` boilerplate to minimize initial setup.
