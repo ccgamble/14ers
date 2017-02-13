@@ -14,7 +14,7 @@ render() {
         <Map
           style={{height: "100vh"}}
           center={position}
-					zoom= {7}
+					zoom= {8}
 					scrollWheelZoom = {false}
 					>
           <TileLayer

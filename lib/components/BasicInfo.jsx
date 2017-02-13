@@ -20,12 +20,17 @@ export default class BasicInfo extends Component {
 			 	<p><span className='snapshot-label'>Elevation Gain: </span>{location.elevationGain} feet</p>
 			 	<p><span className='snapshot-label'>Round Trip Distance: </span>{location.rtDistance} miles</p>
 			 	<p><span className='snapshot-label'>Round Trip Time: </span>{location.rtTime} hours</p>
-				<p>Favorite this mountain!
+				<span>
 					<button className="favorites-button"
 						onClick={()=>{this.props.setFavorite(this.props.location)}}>
-						<img src="../../images/star.png"/>
+						<img src="../public/images/star-empty.png"/>
 					</button>
-				</p>
+				</span>
+        <span>
+          <button className="completed-button">
+            <img src="../public/images/empty-checkmark.png"/>
+          </button>
+        </span>
 			</div>
 		)
 	}
