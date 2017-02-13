@@ -53,7 +53,6 @@ h2{
  }
 
  .mountain-list {
-	 margin-top: 50px;
 	 border-radius: 5px 5px 0 0;
 	 color: black;
 	 padding-top: 30px;
@@ -106,12 +105,12 @@ a:active {
 }
 
 .search-bar {
-	float: right;
-	margin: 10px;
+	text-align: center;
+  margin-top: 30px;
 }
 
 #search-input {
-	font-size: 16px;
+	font-size: 24px;
 }
 
 .signIn-container {
