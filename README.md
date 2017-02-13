@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/ccgamble/PEAKeasy.png?label=ready&title=Ready)](https://waffle.io/ccgamble/PEAKeasy)
 ## Project Name & Pitch
 
 PEAKeasy 
