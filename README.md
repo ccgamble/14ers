@@ -5,9 +5,9 @@ PEAKeasy
 
 An application used for discovering Colorado's 14ers, built with React, JavaScript, and CSS.
 
-## Project Status
+## Description
 
-This project is currently in development. Users can search for mountains by name and click on individual mountains for more information. The homepage displays an overview map showing all of Colorado's 14ers, which was craeted in Mapbox and implemented with react-leaflet. The individual mountain page displays basic information, route information, a 10-day weather forecast, and Google maps with direction capabilities. User can favorite mountains and mark mountains as completed, but functionality to display a page with those selected is in progress. Also, I plan to create functionality for sorting the list of mountains by different parameters.
+Users can search for mountains by name and click on individual mountains for more information. The homepage displays an overview map showing all of Colorado's 14ers, which was craeted in Mapbox and implemented with react-leaflet. The individual mountain page displays basic information, route information, a 10-day weather forecast, and Google maps with direction capabilities. 
 
 ## Installation and Setup Instructions
 
