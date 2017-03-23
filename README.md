@@ -29,6 +29,14 @@ To Visit App:
 
 `localhost:8080`  
 
+## Screenshots
+
+<img width="1164" alt="screen shot 2017-02-28 at 11 17 33 pm" src="https://cloud.githubusercontent.com/assets/15853081/24259700/418de92e-0fb7-11e7-99a7-7ad614df22ac.png">
+<img width="1303" alt="screen shot 2017-03-23 at 10 54 32 am" src="https://cloud.githubusercontent.com/assets/15853081/24259712/4af793fc-0fb7-11e7-862f-eb90996d8de1.png">
+<img width="1244" alt="screen shot 2017-03-23 at 10 54 44 am" src="https://cloud.githubusercontent.com/assets/15853081/24259714/4d3b276e-0fb7-11e7-90cd-768e43156d30.png">
+<img width="1278" alt="screen shot 2017-03-23 at 10 54 52 am" src="https://cloud.githubusercontent.com/assets/15853081/24259716/4f0384e2-0fb7-11e7-9a25-6b799064381f.png">
+
+
 ## Reflection
 This was a 3 week long project built during my third module at Turing School of Software and Design. Project goals included using technologies learned up until this point and familiarizing myself with documentation for new features.  
 
