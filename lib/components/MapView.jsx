@@ -34,8 +34,8 @@ MyMarkersList.propTypes = {
 export default class MapView extends Component {
 
   state = {
-    lat: 38.5,
-    lng: -107.0,
+    lat: 38.8,
+    lng: -106.3,
     zoom: 7,
     data: data
   };
