@@ -55,12 +55,11 @@ export default class MapView extends Component {
     const center = [this.state.lat, this.state.lng];
     const markers = this.loadMarkers()
 
-    
+  
     return (
       <Map center={center} zoom={this.state.zoom}>
         <TileLayer
-          attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-          url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+          url = "https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2FtYmxlY2MiLCJhIjoiY2ltcnYwb3pzMDE3M3Y3a2sxY3MyZmdhNCJ9.jhiY7nr5PpZ3SosSf16bIA"
         />
         <MyMarkersList markers={markers} />
       </Map>
