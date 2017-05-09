@@ -3,8 +3,35 @@ body {
 font-family: 'Archivo Black', sans-serif;
 }
 
-.main-image {
-	width:100vw;
+h2{
+  font-size: 36px;
+  margin: 20px;
+}
+
+a:link {
+    text-decoration: none;
+		color: inherit;
+		font-weight: bold;
+}
+
+a:visited {
+    text-decoration: none;
+		color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+		color: inherit;
+}
+
+.leaflet-container {
+  height: 70vh;
+  width: 100vw;
+  margin: 0 auto;
 }
 
 .app-description-container {
@@ -12,10 +39,6 @@ font-family: 'Archivo Black', sans-serif;
   margin: auto;
 }
 
-h2{
-	font-size: 36px;
-	margin: 20px;
-}
 
 .app-description {
 	position: absolute;
@@ -71,28 +94,6 @@ h2{
   	margin-top: 40px;
   	color: #41C4EC;
   }
-
- a:link {
-    text-decoration: none;
-		color: inherit;
-		font-weight: bold;
-}
-
-a:visited {
-    text-decoration: none;
-		color: inherit;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-a:active {
-    text-decoration: none;
-		color: inherit;
-}
-
-
 
 #mountain-elevation{
 	font-weight: bold;

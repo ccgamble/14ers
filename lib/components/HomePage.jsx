@@ -86,10 +86,10 @@ renderDifficultySymbol(difficulty){
 					<div className="app-description-container">
 					{/* <img className="main-image" src="../images/14er-backgroundphoto-edit.png" /> */}
 					<MapView />
-						<p className="app-description">
+						{/* <p className="app-description">
 							<span className="app-title">PEAKeasy</span>
 							<br/>An app for discovering Colorado’s 14ers.
-						</p>
+						</p> */}
 					</div>
 					<Search onSearch={this.updateSearch.bind(this)}/>
 					<div className="mountain-list">
