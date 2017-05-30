@@ -9,6 +9,8 @@ export default class BasicInfo extends Component {
 
 	render() {
 		const {image, location } = this.props
+    if (location) 
+    {
 		return(
 			<div className="individual-mountain-snapshot snapshot-container">
 			 <img className="mountain-image" src={image} />
@@ -22,6 +24,7 @@ export default class BasicInfo extends Component {
 			 	<p><span className='snapshot-label'>Round Trip Time: </span>{location.rtTime} hours</p>
 			</div>
 		)
+  }
 	}
 }
 
