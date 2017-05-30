@@ -62710,91 +62710,93 @@
 				    image = _props.image,
 				    location = _props.location;
 	
-				return _react2.default.createElement(
-					'div',
-					{ className: 'individual-mountain-snapshot snapshot-container' },
-					_react2.default.createElement('img', { className: 'mountain-image', src: image }),
-					_react2.default.createElement(
-						'h3',
-						{ className: 'individual-mountain-header' },
-						location.name
-					),
-					_react2.default.createElement(
-						'p',
-						null,
+				if (location) {
+					return _react2.default.createElement(
+						'div',
+						{ className: 'individual-mountain-snapshot snapshot-container' },
+						_react2.default.createElement('img', { className: 'mountain-image', src: image }),
 						_react2.default.createElement(
-							'span',
-							{ className: 'snapshot-label' },
-							'Rank: '
+							'h3',
+							{ className: 'individual-mountain-header' },
+							location.name
 						),
-						' ',
-						location.rank
-					),
-					_react2.default.createElement(
-						'p',
-						null,
 						_react2.default.createElement(
-							'span',
-							{ className: 'snapshot-label' },
-							'Elevation: '
+							'p',
+							null,
+							_react2.default.createElement(
+								'span',
+								{ className: 'snapshot-label' },
+								'Rank: '
+							),
+							' ',
+							location.rank
 						),
-						location.elevation,
-						' feet'
-					),
-					_react2.default.createElement(
-						'p',
-						null,
 						_react2.default.createElement(
-							'span',
-							{ className: 'snapshot-label' },
-							'Mountain Range: '
+							'p',
+							null,
+							_react2.default.createElement(
+								'span',
+								{ className: 'snapshot-label' },
+								'Elevation: '
+							),
+							location.elevation,
+							' feet'
 						),
-						location.mountainRange
-					),
-					_react2.default.createElement(
-						'p',
-						null,
 						_react2.default.createElement(
-							'span',
-							{ className: 'snapshot-label' },
-							'Difficulty: '
+							'p',
+							null,
+							_react2.default.createElement(
+								'span',
+								{ className: 'snapshot-label' },
+								'Mountain Range: '
+							),
+							location.mountainRange
 						),
-						location.difficulty
-					),
-					_react2.default.createElement(
-						'p',
-						null,
 						_react2.default.createElement(
-							'span',
-							{ className: 'snapshot-label' },
-							'Elevation Gain: '
+							'p',
+							null,
+							_react2.default.createElement(
+								'span',
+								{ className: 'snapshot-label' },
+								'Difficulty: '
+							),
+							location.difficulty
 						),
-						location.elevationGain,
-						' feet'
-					),
-					_react2.default.createElement(
-						'p',
-						null,
 						_react2.default.createElement(
-							'span',
-							{ className: 'snapshot-label' },
-							'Round Trip Distance: '
+							'p',
+							null,
+							_react2.default.createElement(
+								'span',
+								{ className: 'snapshot-label' },
+								'Elevation Gain: '
+							),
+							location.elevationGain,
+							' feet'
 						),
-						location.rtDistance,
-						' miles'
-					),
-					_react2.default.createElement(
-						'p',
-						null,
 						_react2.default.createElement(
-							'span',
-							{ className: 'snapshot-label' },
-							'Round Trip Time: '
+							'p',
+							null,
+							_react2.default.createElement(
+								'span',
+								{ className: 'snapshot-label' },
+								'Round Trip Distance: '
+							),
+							location.rtDistance,
+							' miles'
 						),
-						location.rtTime,
-						' hours'
-					)
-				);
+						_react2.default.createElement(
+							'p',
+							null,
+							_react2.default.createElement(
+								'span',
+								{ className: 'snapshot-label' },
+								'Round Trip Time: '
+							),
+							location.rtTime,
+							' hours'
+						)
+					);
+				}
 			}
 		}]);
 	
