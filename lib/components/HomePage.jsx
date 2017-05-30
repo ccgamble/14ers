@@ -14,6 +14,10 @@ class HomePage extends Component {
 			searchString: '',
 		}
 	}
+  
+componentDidMount() {
+  window.scrollTo(0, 0)
+}
 
 onItemClick(data, e) {
 	let individualData = data
@@ -73,7 +77,7 @@ renderDifficultySymbol(difficulty){
 				if (!this.props.user) {
 					display =
 					<article id="not-signed-in">
-						To research future expeditions & mark favorite peaks, please LOG IN.
+						To research Colorado's 14ers, please LOG IN.
 					</article>
 				} else {
 					display = mountainList
